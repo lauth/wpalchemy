@@ -5,7 +5,7 @@
  * @copyright	Copyright (c) 2011, Dimas Begunoff, http://farinspace.com/
  * @license  	http://en.wikipedia.org/wiki/MIT_License The MIT License
  * @package  	WPAlchemy
- * @version  	0.2.1
+ * @version  	0.2.1.1
  * @link     	http://github.com/farinspace/wpalchemy/
  * @link     	http://farinspace.com/
  */
@@ -219,7 +219,7 @@
 	{
 		$groupname = isset($groupname) ? $groupname : $this->groupname ;
 		
-		return $this->button_class_name . '-' . $groupname . ' thickbox';
+		return $this->button_class_name . ' ' . $this->button_class_name . '-' . $groupname . ' thickbox';
 	}
 
 	/**
@@ -365,7 +365,7 @@
 							$('#TB_iframeContent').contents().find('.media-item .savesend input[type=submit], #insertonlybutton').val(label);
 						}
 
-						$('[class*="<?php echo $this->button_class_name; ?>"]').on('click', function()
+						$('.postbox').on('click', '.<?php echo $this->button_class_name; ?>', function()
 						{
 							var name = $(this).attr('class').match(/<?php echo $this->button_class_name; ?>-([a-zA-Z0-9_-]*)/i);
 							name = (name && name[1]) ? name[1] : '' ;
